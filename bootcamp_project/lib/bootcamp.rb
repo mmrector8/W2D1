@@ -47,4 +47,40 @@ class Bootcamp
             false
         end
     end 
+
+    def student_to_teacher_ratio
+        return @students.length/@teachers.length
+    end 
+
+    def add_grade(student, grade)
+        # make all the keys of the hash a student's name
+        @students.each do |existing_student|
+            if !@grades.has_key?(existing_student)
+                @grades[existing_student]
+            end 
+        end 
+
+        if enrolled?(student)
+            @grades[student] << grade
+            return true
+        else
+            return false
+        end 
+        #loop through hash, if student is a key, shovel in grade
+        
+    end 
+
+    def num_grades(student)
+        return @grades[student].length
+    end 
+
+    def average_grade(student)
+        if !enrolled?(student) || num_grades(student) == 0
+            return nil
+        end
+
+        @grades[student].sum/num_grades(student)
+    end 
 end
+
+
