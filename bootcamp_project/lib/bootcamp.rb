@@ -53,13 +53,7 @@ class Bootcamp
     end 
 
     def add_grade(student, grade)
-        # make all the keys of the hash a student's name
-        @students.each do |existing_student|
-            if !@grades.has_key?(existing_student)
-                @grades[existing_student]
-            end 
-        end 
-
+        
         if enrolled?(student)
             @grades[student] << grade
             return true
