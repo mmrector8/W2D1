@@ -53,7 +53,6 @@ class Bootcamp
     end 
 
     def add_grade(student, grade)
-        
         if enrolled?(student)
             @grades[student] << grade
             return true
